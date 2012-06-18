@@ -16,17 +16,20 @@ DESCRIPTION
 USAGE
   new(MODE => $mode, PIN => @pin, BCM => @bcm)
     Create new RPi:GPIO instance.
+        PATH - Path to gpio
+        default: /sys/class/gpio/
+    
         MODE - GPIO Access Method:
         PIN: Raspberry Pi's GPIO pin numbers.
         BCM: Raspberry Pi's Broadcom GPIO designation.
-    
+
         PIN - Set Raspberry Pi PIN -> BCM map
         [undef, undef, undef, 0, undef, 1, undef, 4, 14, undef, 15, 17, 18, 21, undef, 22, 23, undef, 24, 10, undef, 9, 25, 11, 8, undef, 7]
         NOTE: the first undef is for array[0] as the RPi starts at PIN 1
-    
+
         BCM - List of BCM GPIO designations
         [0, 1, 4, 7, 8, 9, 10, 11, 14, 15, 17, 18, 21, 22, 23, 24, 25]
-    
+
         returns: $self
 
   setup($channel, $direction)
@@ -45,6 +48,11 @@ USAGE
         $channel = PIN or BCM designation depending on mode
         $value = 0 or 1
         returns: 1 success, 0 fail
+
+  remove($channel)
+    remove a gpio channel
+        $channel = PIN or BCM designation depending on mode
+        if $channel = 'ALL' it will remove all
 
 BUGS
     If there are none I will be surprised and always room for improvement
