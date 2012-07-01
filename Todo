@@ -2,6 +2,4 @@ TODO list for Perl module RPi::GPIO
 
 - really needs some testing routines
 - add more comments
-- could do with some more sanity checks on file opens;
-- need some code for clearing a gpio's setup
-
+- export needs root?!?!?

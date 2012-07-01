@@ -198,7 +198,7 @@ sub validate {
         return undef;
     }
 
-    if($self->{MODE} == 'BCM') {
+    if($self->{MODE} eq 'BCM') {
         unless(grep $_ == $channel, @{$self->{BCM}}) {
             warn 'The BCM channel sent is invalid on a Raspberry Pi';
             return undef;
